@@ -9,14 +9,14 @@ export class CreateEntityDto {
   @IsString()
   description: string;
 
-  @Length(1,20)
+  @Length(1, 20)
   siret: string;
 
-  @Length(1,250)
+  @Length(1, 250)
   keyLicence: string;
 
   @IsString()
-  @Length(1,100)
+  @Length(1, 100)
   website: string;
 
   createdAt: Date;

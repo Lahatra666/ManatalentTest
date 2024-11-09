@@ -8,6 +8,7 @@ import {
   Delete,
   HttpStatus,
   Res,
+  Put,
 } from '@nestjs/common';
 import { EntityService } from './entity.service';
 import { CreateEntityDto } from './dto/create-entity.dto';
@@ -33,7 +34,7 @@ export class EntityController {
     return this.entityService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateEntityDto: UpdateEntityDto) {
     return this.entityService.update(+id, updateEntityDto);
   }
