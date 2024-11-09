@@ -1,25 +1,32 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { IsNotEmpty } from 'class-validator';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class Entitiy {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ length: 50 })
+  @Column()
+  @IsNotEmpty()
   name: string;
 
   @Column()
   description: string;
 
-  @Column({ length: 20 })
+  @Column()
   siret: string;
 
-  @Column({ length: 250 })
+  @Column()
   keyLicence: string;
 
-  @Column({ length: 100 })
+  @Column()
   website: string;
 
-  @CreateDateColumn({ type:'datetime' })
+  @CreateDateColumn()
   createdAt: Date;
 }

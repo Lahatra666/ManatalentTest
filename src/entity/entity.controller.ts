@@ -6,18 +6,21 @@ import {
   Patch,
   Param,
   Delete,
+  HttpStatus,
+  Res,
 } from '@nestjs/common';
 import { EntityService } from './entity.service';
 import { CreateEntityDto } from './dto/create-entity.dto';
 import { UpdateEntityDto } from './dto/update-entity.dto';
 
-@Controller('entity')
+@Controller('entities')
 export class EntityController {
   constructor(private readonly entityService: EntityService) {}
 
   @Post()
   create(@Body() createEntityDto: CreateEntityDto) {
-    return this.entityService.create(createEntityDto);
+    const result =  this.entityService.create(createEntityDto);
+    return result;
   }
 
   @Get()
