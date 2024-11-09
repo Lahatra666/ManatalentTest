@@ -6,6 +6,8 @@ import { EntityModule } from './entity/entity.module';
 import { Entitiy } from './entity/entities/entity.entity';
 import { UserModule } from './user/user.module';
 import { User } from './user/entities/user.entity';
+import { UserEntityModule } from './user-entity/user-entity.module';
+import { UserEntity } from './user-entity/entities/user-entity.entity';
 
 @Module({
   imports: [
@@ -16,11 +18,12 @@ import { User } from './user/entities/user.entity';
       username: 'root',
       password: '',
       database: 'mana',
-      entities: [Entitiy,User],
+      entities: [Entitiy,User,UserEntity],
       synchronize: true,
     }),
     EntityModule,
     UserModule,
+    UserEntityModule,
   ],
   controllers: [AppController],
   providers: [AppService],
